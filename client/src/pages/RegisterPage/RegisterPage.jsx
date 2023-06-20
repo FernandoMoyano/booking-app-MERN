@@ -8,6 +8,11 @@ const RegisterPage = () => {
 
   function registerUser(event) {
     event.preventDefault();
+    axios.post("/register",{
+      name,
+      email,
+      password
+    })
   }
 
   return (
