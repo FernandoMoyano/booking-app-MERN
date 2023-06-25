@@ -3,6 +3,8 @@ import IndexPage from "./pages/IndexPage/IndexPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Layout from "./Layout/Layout";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import axios from "axios";
+
 
 axios.defaults.baseURL="http://localhost:4000"
 
