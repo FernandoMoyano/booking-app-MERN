@@ -7,6 +7,8 @@ require("dotenv").config();
 
 const app = express();
 
+const bcryptSalt = bcrypt.genSaltSync(10);
+
 app.use(express.json());
 app.use(
   cors({
@@ -22,13 +24,16 @@ app.get("/test", (req, res) => {
   res.json("test Ok");
 });
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
-  User.create({
-    name,
-    email,
-    password: bcrypt.hashSync(password, secret),
-  });
+  try {
+    const userDoc = await User.create({
+      name,
+      email,
+      password: bcrypt.hashSync(password, bcryptSalt),
+    });
+    res.json(userDoc);
+  } catch {}
 });
 
 app.listen(4000);
