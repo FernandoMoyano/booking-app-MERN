@@ -9,12 +9,16 @@ const RegisterPage = () => {
 
   async function registerUser(event) {
     event.preventDefault();
-    await axios.post("/register", {
-      name,
-      email,
-      password,
-    });
-    alert("Registration successful. Now you can log in")
+    try {
+      await axios.post("/register", {
+        name,
+        email,
+        password,
+      });
+    } catch (error) {
+      alert("Registration failed, please try again later");
+    }
+    alert("Registration successful. Now you can log in");
   }
 
   return (
