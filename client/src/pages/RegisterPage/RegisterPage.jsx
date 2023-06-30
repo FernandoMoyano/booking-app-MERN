@@ -15,10 +15,10 @@ const RegisterPage = () => {
         email,
         password,
       });
+      alert("Registration successful. Now you can log in");
     } catch (error) {
       alert("Registration failed, please try again later");
     }
-    alert("Registration successful. Now you can log in");
   }
 
   return (
@@ -34,9 +34,9 @@ const RegisterPage = () => {
           ></input>
           <input
             type="email"
-            placeholder="Your Email"
+            placeholder="Your@email.com"
             value={email}
-            onChange={(event) => setEmail(event.target.email)}
+            onChange={(event) => setEmail(event.target.value)}
           ></input>
           <input
             type="password"
