@@ -8,12 +8,13 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
 
-  useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   async function handleLoginSubmit(event) {
     event.preventDefault();
     try {
-      const userInfo = await axios.post("login", { email, password });
+      const {data} = await axios.post("login", { email, password });
+      setUser(data);
       alert("Login Successful");
       setRedirect(true);
     } catch (error) {
