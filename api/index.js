@@ -84,3 +84,8 @@ app.get("/profile", (req, res) => {
 });
 
 app.listen(4000);
+
+//POST LOGOUT
+app.post("/logout", (req, res) => {
+  res.cookie("token", "").json(true);
+});
